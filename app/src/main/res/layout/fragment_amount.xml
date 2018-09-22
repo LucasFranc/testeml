@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.AmountActivity"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/pattern_margin">
+
+    <com.blackcat.currencyedittext.CurrencyEditText
+        android:id="@+id/edt_text_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/insert_value"
+        android:inputType="number"
+        android:maxLength="10"
+        app:allow_negative_values="false"
+        />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:layout_marginTop="@dimen/pattern_margin"
+        android:theme="@style/Widget.AppCompat.Button.Borderless"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white" />
+
+</LinearLayout>
