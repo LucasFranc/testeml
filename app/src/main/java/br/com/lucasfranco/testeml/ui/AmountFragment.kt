@@ -7,37 +7,44 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.lucasfranco.testeml.R
 import br.com.lucasfranco.testeml.presenter.AmountFragmentPresenter
+import br.com.lucasfranco.testeml.view.AmountFragmentView
 import kotlinx.android.synthetic.main.fragment_amount.*
 import kotlinx.android.synthetic.main.fragment_amount.view.*
 import java.util.*
 
-class AmountFragment : Fragment() {
+class AmountFragment : Fragment(), AmountFragmentView {
 
-    private var presenter: AmountFragmentPresenter = AmountFragmentPresenter()
-    lateinit var rootView: View
+    private lateinit var presenter: AmountFragmentPresenter
+    private lateinit var rootView: View
+    private lateinit var act : TransactionActivity
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.fragment_amount,container,false)
+        presenter = AmountFragmentPresenter(this)
+        act = requireActivity() as TransactionActivity
         bindEdtValue()
         bindBtnNext()
         return rootView
     }
 
     private fun bindEdtValue() {
-        rootView.edt_text_value.locale = Locale.US
-
+        rootView.edt_text_amount.locale = Locale.US
     }
 
     private fun bindBtnNext() {
         rootView.btn_next.setOnClickListener {
-            if (!presenter.checkZero(edt_text_value.rawValue))
-                presenter.onClickBtnNext(presenter.formatValue(edt_text_value.text.toString()))
+            if (!presenter.checkZero(edt_text_amount.rawValue))
+                    presenter.onClickBtnNext(act.transaction, presenter.formatValue(edt_text_amount.text.toString()))
             else
                 showError()
         }
     }
 
     private fun showError() {
-        edt_text_value.error = getString(R.string.error_zero)
+        txt_input_amount.error = getString(R.string.error_zero)
+    }
+
+    override fun onNextFragment() {
+            act.nextFragment()
     }
 }

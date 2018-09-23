@@ -1,11 +1,13 @@
 package br.com.lucasfranco.testeml.presenter
 
-import android.util.Log
+import br.com.lucasfranco.testeml.model.Transaction
+import br.com.lucasfranco.testeml.view.AmountFragmentView
 
-class AmountFragmentPresenter {
+class AmountFragmentPresenter(val view : AmountFragmentView) {
 
-    fun onClickBtnNext(value: String) {
-        Log.e("teste",value)
+    fun onClickBtnNext(transaction : Transaction, value: String) {
+        transaction.amount = value
+        view.onNextFragment()
     }
 
     fun formatValue(valueText: String): String {
@@ -18,7 +20,7 @@ class AmountFragmentPresenter {
     }
 
     fun checkZero(rawValue: Long):Boolean {
-        return rawValue.equals(0L)
+        return rawValue == 0L
     }
 
 }

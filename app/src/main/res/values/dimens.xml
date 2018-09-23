@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="pattern_margin">16dp</dimen>
+    <dimen name="half_pattern_margin">8dp</dimen>
+    <dimen name="twenty_four_dp">24dp</dimen>
 </resources>
