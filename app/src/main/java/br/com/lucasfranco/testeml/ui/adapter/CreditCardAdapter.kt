@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.lucasfranco.testeml.R
-import br.com.lucasfranco.testeml.callback.OnClickCallback
+import br.com.lucasfranco.testeml.callback.OnCreditCardClick
 import br.com.lucasfranco.testeml.model.CreditCard
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.view_holder_credit_card.view.*
 
-class CreditCardAdapter(private val callback : OnClickCallback,
+class CreditCardAdapter(private val callback : OnCreditCardClick,
                         private val creditCardList: List<CreditCard>) : RecyclerView.Adapter<CreditCardAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): ViewHolder {
@@ -21,7 +21,7 @@ class CreditCardAdapter(private val callback : OnClickCallback,
         val finalPosition = holder.adapterPosition
         holder.txtCreditCard.text = creditCardList[finalPosition].name
         Glide.with(holder.itemView).load(creditCardList[finalPosition].thumbnail).into(holder.ivCreditCard)
-        holder.container.setOnClickListener { callback.onItemClick(finalPosition) }
+        holder.container.setOnClickListener { callback.onItemClick(creditCardList[finalPosition]) }
 
     }
 

@@ -7,14 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.lucasfranco.testeml.R
-import br.com.lucasfranco.testeml.callback.OnClickCallback
+import br.com.lucasfranco.testeml.callback.OnCreditCardClick
 import br.com.lucasfranco.testeml.model.CreditCard
 import br.com.lucasfranco.testeml.presenter.CreditCardFragmentPresenterImpl
 import br.com.lucasfranco.testeml.ui.adapter.CreditCardAdapter
 import br.com.lucasfranco.testeml.view.CreditCardFragmentView
 import kotlinx.android.synthetic.main.fragment_credit_card.view.*
 
-class CreditCardFragment : Fragment(), OnClickCallback, CreditCardFragmentView {
+class CreditCardFragment : Fragment(), OnCreditCardClick, CreditCardFragmentView {
 
     private lateinit var rootView: View
     private var presenter = CreditCardFragmentPresenterImpl()
@@ -33,7 +33,8 @@ class CreditCardFragment : Fragment(), OnClickCallback, CreditCardFragmentView {
         rootView.rv_credit_card.adapter = CreditCardAdapter(this,list)
     }
 
-    override fun onItemClick(position: Int) {
+    override fun onItemClick(selectedItem: CreditCard) {
+        act.transaction.selectedCC = selectedItem
         act.nextFragment()
     }
 }

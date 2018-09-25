@@ -7,6 +7,6 @@ import retrofit2.http.GET
 
 interface CreditCardService {
 
-    @GET(Constants.PAYMENT_METHODS + "?" + Constants.PUBLIC_KEY + "=" + Constants.PUBLIC_KEY_VALUE)
+    @GET(Constants.PAYMENT_METHODS + "?" + Constants.PUBLIC_KEY + Constants.PUBLIC_KEY_VALUE)
     fun getAllCreditCards(): Call<List<CreditCard>>
 }
