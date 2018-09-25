@@ -3,4 +3,6 @@
     <string name="insert_value">Insert desired value</string>
     <string name="next">next</string>
     <string name="error_zero">Value cannot be zero</string>
+    <string name="resume">Resume</string>
+    <string name="ok">OK</string>
 </resources>

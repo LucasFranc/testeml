@@ -7,4 +7,5 @@ object Constants {
     const val PAYMENT_METHODS = "payment_methods"
     const val PUBLIC_KEY = "public_key="
     const val CARD_ISSUERS = "/card_issuers"
+    const val INSTALLMENTS = "/installments/"
 }

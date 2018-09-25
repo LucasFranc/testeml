@@ -4,6 +4,6 @@ import br.com.lucasfranco.testeml.model.Installments
 
 interface InstallmentFragmentView {
 
-    fun updateRecyclerView(list : Installments)
+    fun updateRecyclerView(installments : Installments)
 
 }

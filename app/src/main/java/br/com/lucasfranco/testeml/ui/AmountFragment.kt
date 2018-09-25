@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.lucasfranco.testeml.R
-import br.com.lucasfranco.testeml.presenter.AmountFragmentPresenter
+import br.com.lucasfranco.testeml.presenter.AmountFragmentPresenterImpl
 import br.com.lucasfranco.testeml.view.AmountFragmentView
 import kotlinx.android.synthetic.main.fragment_amount.*
 import kotlinx.android.synthetic.main.fragment_amount.view.*
@@ -14,13 +14,13 @@ import java.util.*
 
 class AmountFragment : Fragment(), AmountFragmentView {
 
-    private lateinit var presenter: AmountFragmentPresenter
+    private lateinit var presenter: AmountFragmentPresenterImpl
     private lateinit var rootView: View
-    private lateinit var act : TransactionActivity
+    private lateinit var act: TransactionActivity
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        rootView = inflater.inflate(R.layout.fragment_amount,container,false)
-        presenter = AmountFragmentPresenter(this)
+        rootView = inflater.inflate(R.layout.fragment_amount, container, false)
+        presenter = AmountFragmentPresenterImpl(this)
         act = requireActivity() as TransactionActivity
         bindEdtValue()
         bindBtnNext()
@@ -34,7 +34,7 @@ class AmountFragment : Fragment(), AmountFragmentView {
     private fun bindBtnNext() {
         rootView.btn_next.setOnClickListener {
             if (!presenter.checkZero(edt_text_amount.rawValue))
-                    presenter.onClickBtnNext(act.transaction, presenter.formatValue(edt_text_amount.text.toString()))
+                presenter.onClickBtnNext(act.transaction, presenter.formatValue(edt_text_amount.text.toString()))
             else
                 showError()
         }
@@ -45,6 +45,6 @@ class AmountFragment : Fragment(), AmountFragmentView {
     }
 
     override fun onNextFragment() {
-            act.nextFragment()
+        act.nextFragment()
     }
 }
