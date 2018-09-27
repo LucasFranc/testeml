@@ -1,8 +1,8 @@
 package br.com.lucasfranco.testeml.interactor
 
-import br.com.lucasfranco.testeml.RetrofitClient
 import br.com.lucasfranco.testeml.model.CreditCard
 import br.com.lucasfranco.testeml.service.CreditCardService
+import br.com.lucasfranco.testeml.utils.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

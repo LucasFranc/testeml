@@ -22,6 +22,7 @@ class AmountFragment : Fragment(), AmountFragmentView {
         rootView = inflater.inflate(R.layout.fragment_amount, container, false)
         presenter = AmountFragmentPresenterImpl(this)
         act = requireActivity() as TransactionActivity
+        act.setToolbarTitle(resources.getString(R.string.amount))
         bindEdtValue()
         bindBtnNext()
         return rootView

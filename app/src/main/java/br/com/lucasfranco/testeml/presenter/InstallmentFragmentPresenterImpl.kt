@@ -13,10 +13,12 @@ class InstallmentFragmentPresenterImpl : InstallmentFragmentPresenter {
     }
 
     override fun doRequestInstallments(transaction: Transaction) {
+        view.showLoading()
         InstallmentInteractor().doRequestInstallments(
                 transaction.amount,
                 transaction.selectedCC.id,
                 transaction.selectedCI.id) {
+            view.hideLoading()
             view.updateRecyclerView(it)
         }
     }

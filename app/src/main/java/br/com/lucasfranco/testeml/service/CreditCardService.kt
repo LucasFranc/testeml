@@ -1,7 +1,7 @@
 package br.com.lucasfranco.testeml.service
 
-import br.com.lucasfranco.testeml.Constants
 import br.com.lucasfranco.testeml.model.CreditCard
+import br.com.lucasfranco.testeml.utils.Constants
 import retrofit2.Call
 import retrofit2.http.GET
 

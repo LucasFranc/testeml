@@ -1,4 +1,4 @@
-package br.com.lucasfranco.testeml
+package br.com.lucasfranco.testeml.utils
 
 object Constants {
 

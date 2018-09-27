@@ -1,9 +1,10 @@
-package br.com.lucasfranco.testeml
+package br.com.lucasfranco.testeml.utils
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
+import br.com.lucasfranco.testeml.R
 
 inline fun FragmentManager.transaction(func: FragmentTransaction.() -> FragmentTransaction) {
     beginTransaction()

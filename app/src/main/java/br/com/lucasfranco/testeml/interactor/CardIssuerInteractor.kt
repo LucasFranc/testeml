@@ -1,9 +1,9 @@
 package br.com.lucasfranco.testeml.interactor
 
-import br.com.lucasfranco.testeml.Constants
-import br.com.lucasfranco.testeml.RetrofitClient
 import br.com.lucasfranco.testeml.model.CardIssuer
 import br.com.lucasfranco.testeml.service.CardIssuerService
+import br.com.lucasfranco.testeml.utils.Constants
+import br.com.lucasfranco.testeml.utils.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

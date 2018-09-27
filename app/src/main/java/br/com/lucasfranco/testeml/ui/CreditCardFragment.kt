@@ -23,6 +23,7 @@ class CreditCardFragment : Fragment(), OnCreditCardClick, CreditCardFragmentView
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.fragment_credit_card,container,false)
         act = requireActivity() as TransactionActivity
+        act.setToolbarTitle(resources.getString(R.string.credit_card))
         presenter.attachView(this)
         presenter.doRequestCreditCards()
         return rootView
@@ -37,4 +38,8 @@ class CreditCardFragment : Fragment(), OnCreditCardClick, CreditCardFragmentView
         act.transaction.selectedCC = selectedItem
         act.nextFragment()
     }
+
+    override fun showLoading() { act.showLoading() }
+    override fun hideLoading() { act.hideLoading() }
+
 }

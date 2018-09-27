@@ -1,5 +1,5 @@
 package br.com.lucasfranco.testeml.view
 
-interface AmountFragmentView {
+interface AmountFragmentView{
     fun onNextFragment()
 }

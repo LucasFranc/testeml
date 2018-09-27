@@ -13,8 +13,13 @@ class CardIssuerFragmentPresenterImpl : CardIssuerFragmentPresenter {
     }
 
     override fun doRequestCardIssuers(transaction: Transaction) {
+        view.showLoading()
         CardIssuerInteractor().doRequestCardIssuers(transaction.selectedCC.id) {
-            view.updateRecyclerView(it)
+            view.hideLoading()
+            if(it.isNotEmpty())
+                view.updateRecyclerView(it)
+            else
+                view.showNoResultsView()
         }
     }
 

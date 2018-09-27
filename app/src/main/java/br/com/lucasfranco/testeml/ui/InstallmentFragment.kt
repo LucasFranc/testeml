@@ -24,6 +24,7 @@ class InstallmentFragment: Fragment(), OnInstallmentClick, InstallmentFragmentVi
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.fragment_installment,container,false)
         act = requireActivity() as TransactionActivity
+        act.setToolbarTitle(resources.getString(R.string.installments))
         presenter.attachView(this)
         presenter.doRequestInstallments(act.transaction)
         return rootView
@@ -38,5 +39,8 @@ class InstallmentFragment: Fragment(), OnInstallmentClick, InstallmentFragmentVi
         act.transaction.selectedInstallment = installment
         act.nextFragment()
     }
+
+    override fun showLoading() { act.showLoading() }
+    override fun hideLoading() { act.hideLoading() }
 
 }
