@@ -66,7 +66,7 @@ class TransactionActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(getString(R.string.resume))
         builder.setMessage(presenter.formatMessage(transaction))
-        builder.setPositiveButton(getString(R.string.ok)) { dialog, arg1 ->  dialog.dismiss()}
+        builder.setPositiveButton(getString(R.string.ok)) { dialog, _ ->  dialog.dismiss()}
         builder.create().show()
     }
 

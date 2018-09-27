@@ -20,7 +20,7 @@ class DialogLoading {
     }
 
     private fun initDialog(dialog : Dialog) {
-        dialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(R.layout.dialog_loading)
     }
 
