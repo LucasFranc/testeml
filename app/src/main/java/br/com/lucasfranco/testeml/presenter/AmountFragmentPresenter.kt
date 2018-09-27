@@ -6,7 +6,7 @@ import br.com.lucasfranco.testeml.view.AmountFragmentView
 interface AmountFragmentPresenter {
 
     fun attachView(view : AmountFragmentView)
-    fun onClickBtnNext(transaction : Transaction, value: String)
+    fun onClickBtnNext(rawValue: Long, transaction: Transaction, valueString: String)
     fun formatValue(valueText: String): String
     fun checkZero(rawValue: Long):Boolean
 }

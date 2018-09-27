@@ -19,14 +19,10 @@ class CreditCardInteractor {
                             callBackSuccess(response.body()!!)
                         }else
                             onFailure(call,Throwable("error"))
-
                     }
-
                     override fun onFailure(call: Call<List<CreditCard>>, t: Throwable) {
                         callbackError(t.localizedMessage)
                     }
-
-
                 })
     }
 

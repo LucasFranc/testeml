@@ -34,14 +34,14 @@ class AmountFragment : Fragment(), AmountFragmentView {
 
     private fun bindBtnNext() {
         rootView.btn_next.setOnClickListener {
-            if (!presenter.checkZero(edt_text_amount.rawValue))
-                presenter.onClickBtnNext(act.transaction, presenter.formatValue(edt_text_amount.text.toString()))
-            else
-                showError()
+                presenter.onClickBtnNext(
+                        edt_text_amount.rawValue,
+                        act.transaction,
+                        edt_text_amount.text.toString())
         }
     }
 
-    private fun showError() {
+    override fun showError() {
         txt_input_amount.error = getString(R.string.error_zero)
     }
 

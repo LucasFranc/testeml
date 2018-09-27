@@ -9,9 +9,11 @@ class AmountFragmentPresenterImpl : AmountFragmentPresenter {
 
     override fun attachView(view: AmountFragmentView) { this.view = view }
 
-    override fun onClickBtnNext(transaction : Transaction, value: String) {
-        transaction.amount = value
-        view.onNextFragment()
+    override fun onClickBtnNext(rawValue: Long, transaction: Transaction, valueString: String) {
+        if(!checkZero(rawValue)) {
+            transaction.amount = formatValue(valueString)
+            view.onNextFragment()
+        }else{ view.showError() }
     }
 
     override fun formatValue(valueText: String): String {

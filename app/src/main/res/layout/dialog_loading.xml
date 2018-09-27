@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/dialog_shape"
+    android:background="@color/colorPrimary"
     android:layout_width="@dimen/loading_dialog_size"
     android:layout_height="@dimen/loading_dialog_height"
     android:gravity="center">

@@ -24,15 +24,13 @@ class InstallmentInteractor {
                         if(response.isSuccessful){
                             val selectedInstallment = response.body()!!.filter{ it.issuer.id == CIid }
                             callback(selectedInstallment.single())
-                        }
+                        }else
                         onFailure(call,Throwable("Error"))
                     }
 
                     override fun onFailure(call: Call<List<Installments>>, t: Throwable) {
                         callbackError(t.localizedMessage)
                     }
-
-
                 })
     }
 }
