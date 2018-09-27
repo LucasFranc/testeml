@@ -5,27 +5,37 @@ import br.com.lucasfranco.testeml.presenter.AmountFragmentPresenterImpl
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.MockitoAnnotations
-import org.mockito.junit.MockitoJUnitRunner
 
-
-@RunWith(MockitoJUnitRunner::class)
 class AmountFragmentPresenterTest {
 
-    @Mock lateinit var presenter: AmountFragmentPresenter
+    private lateinit var presenter: AmountFragmentPresenter
 
     @Before
     fun setUp() {
-        MockitoAnnotations.initMocks(this)
         presenter = AmountFragmentPresenterImpl()
     }
 
     @Test
-    fun is_format_correct() {
+    fun isFormatCorrect() {
         val result = presenter.formatValue("$5,000.00")
         assertEquals("5000.00",result)
+    }
 
+    @Test
+    fun isFormatFail() {
+        val result = presenter.formatValue("123abc")
+        assertEquals("",result)
+    }
+
+    @Test
+    fun checkFormatZero(){
+        val result = presenter.checkZero(0L)
+        assertEquals(result,true)
+    }
+
+    @Test
+    fun checkFormatZeroFail(){
+        val result = presenter.checkZero(3L)
+        assertEquals(result,false)
     }
 }

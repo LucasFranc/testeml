@@ -15,12 +15,15 @@ class AmountFragmentPresenterImpl : AmountFragmentPresenter {
     }
 
     override fun formatValue(valueText: String): String {
-        val value = valueText.replace("$","",false)
-                .replace(",","",false)
-                .replace(".","",false)
-        val beforeDot = value.substring(0,value.length - 2)
-        val afterDot = value.substring(value.length - 2)
-        return "$beforeDot.$afterDot"
+        return if(valueText.contains('$')) {
+            val value = valueText.replace("$", "", false)
+                    .replace(",", "", false)
+                    .replace(".", "", false)
+            val beforeDot = value.substring(0, value.length - 2)
+            val afterDot = value.substring(value.length - 2)
+            "$beforeDot.$afterDot"
+        }else
+            ""
     }
 
     override fun checkZero(rawValue: Long):Boolean {
