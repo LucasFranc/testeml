@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import android.widget.Toast
 import br.com.lucasfranco.testeml.R
 import br.com.lucasfranco.testeml.model.Transaction
 import br.com.lucasfranco.testeml.presenter.TransactionActivityPresenterImpl
@@ -72,6 +73,7 @@ class TransactionActivity : AppCompatActivity() {
 
     fun showLoading(){loadingDialog.show()}
     fun hideLoading(){loadingDialog.dismiss()}
+    fun showToast(message : String) {Toast.makeText(this,message,Toast.LENGTH_SHORT).show()}
 
     override fun onBackPressed() {
         if(amountFragment.isVisible){finish()}

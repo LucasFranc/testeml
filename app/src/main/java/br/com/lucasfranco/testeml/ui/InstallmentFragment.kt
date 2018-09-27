@@ -42,5 +42,5 @@ class InstallmentFragment: Fragment(), OnInstallmentClick, InstallmentFragmentVi
 
     override fun showLoading() { act.showLoading() }
     override fun hideLoading() { act.hideLoading() }
-
+    override fun showToast(message : String) {act.showToast(message)}
 }

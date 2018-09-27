@@ -13,10 +13,13 @@ class CreditCardFragmentPresenterImpl : CreditCardFragmentPresenter {
 
     override fun doRequestCreditCards() {
         view.showLoading()
-        CreditCardInteractor().doRequestCreditCards {
+        CreditCardInteractor().doRequestCreditCards( {
             view.hideLoading()
             view.updateRecyclerView(it)
-        }
+        },{
+            view.hideLoading()
+            view.showToast(it)
+        })
     }
 
 }

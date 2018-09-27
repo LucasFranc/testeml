@@ -4,5 +4,6 @@ interface BaseView {
 
     fun showLoading()
     fun hideLoading()
+    fun showToast(message : String)
 
 }

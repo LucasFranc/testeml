@@ -17,11 +17,13 @@ class InstallmentFragmentPresenterImpl : InstallmentFragmentPresenter {
         InstallmentInteractor().doRequestInstallments(
                 transaction.amount,
                 transaction.selectedCC.id,
-                transaction.selectedCI.id) {
-            view.hideLoading()
-            view.updateRecyclerView(it)
-        }
+                transaction.selectedCI.id, {
+                    view.hideLoading()
+                    view.updateRecyclerView(it)
+                }, {
+                    view.hideLoading()
+                    view.showToast(it)
+                }
+        )
     }
-
-
 }

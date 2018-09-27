@@ -9,18 +9,21 @@ import retrofit2.Response
 
 class CreditCardInteractor {
 
-    fun doRequestCreditCards(callBackSuccess: (List<CreditCard>) -> Unit) {
+    fun doRequestCreditCards(callBackSuccess: (List<CreditCard>) -> Unit,
+                             callbackError: (String) -> Unit) {
         RetrofitClient.getClient().create(CreditCardService::class.java).getAllCreditCards().
                 enqueue(object : Callback<List<CreditCard>>{
 
                     override fun onResponse(call: Call<List<CreditCard>>, response: Response<List<CreditCard>>) {
                         if(response.isSuccessful){
                             callBackSuccess(response.body()!!)
-                        }
+                        }else
+                            onFailure(call,Throwable("error"))
+
                     }
 
                     override fun onFailure(call: Call<List<CreditCard>>, t: Throwable) {
-
+                        callbackError(t.localizedMessage)
                     }
 
 

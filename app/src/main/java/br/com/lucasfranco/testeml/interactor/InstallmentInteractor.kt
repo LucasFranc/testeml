@@ -11,7 +11,8 @@ import retrofit2.Response
 class InstallmentInteractor {
 
     fun doRequestInstallments(amount: String, CCid: String, CIid: String,
-                              callback: (installments : Installments) -> Unit) {
+                              callback: (installments : Installments) -> Unit,
+                              callbackError : (String) -> Unit) {
         RetrofitClient.getClient().create(InstallmentService::class.java).getAllInstallments(
                 Constants.PUBLIC_KEY_VALUE,
                 amount,
@@ -24,10 +25,11 @@ class InstallmentInteractor {
                             val selectedInstallment = response.body()!!.filter{ it.issuer.id == CIid }
                             callback(selectedInstallment.single())
                         }
+                        onFailure(call,Throwable("Error"))
                     }
 
                     override fun onFailure(call: Call<List<Installments>>, t: Throwable) {
-                        t.printStackTrace()
+                        callbackError(t.localizedMessage)
                     }
 
 
