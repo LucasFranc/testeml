@@ -3,7 +3,11 @@ package br.com.lucasfranco.testeml.presenter
 import br.com.lucasfranco.testeml.model.Transaction
 import br.com.lucasfranco.testeml.view.AmountFragmentView
 
-class AmountFragmentPresenterImpl(val view : AmountFragmentView) : AmountFragmentPresenter {
+class AmountFragmentPresenterImpl : AmountFragmentPresenter {
+
+    private lateinit var view: AmountFragmentView
+
+    override fun attachView(view: AmountFragmentView) { this.view = view }
 
     override fun onClickBtnNext(transaction : Transaction, value: String) {
         transaction.amount = value

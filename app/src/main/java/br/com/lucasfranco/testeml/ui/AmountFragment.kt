@@ -14,13 +14,13 @@ import java.util.*
 
 class AmountFragment : Fragment(), AmountFragmentView {
 
-    private lateinit var presenter: AmountFragmentPresenterImpl
+    private val presenter = AmountFragmentPresenterImpl()
     private lateinit var rootView: View
     private lateinit var act: TransactionActivity
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.fragment_amount, container, false)
-        presenter = AmountFragmentPresenterImpl(this)
+        presenter.attachView(this)
         act = requireActivity() as TransactionActivity
         act.setToolbarTitle(resources.getString(R.string.amount))
         bindEdtValue()
